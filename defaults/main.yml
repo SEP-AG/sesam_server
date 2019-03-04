@@ -1,0 +1,22 @@
+---
+# defaults file for sesam_server
+
+# sesam_package
+sesam_server_package: http://download.sep.de/linux/RedHat/x86_64/RHEL7/sesam_srv-4.4.3-64_pg.rhel7.x86_64.rpm
+
+# sesam var location
+sesam_var: /var/opt/sesam/var 
+
+# sesam bin location
+sesam_bin: /opt/sesam
+
+sesam_server_datastore_name: ds_local
+sesam_server_datastore_options: "-c -1 -h -p /sm_disk2 -G dg_ds_local -m Local_Disk -e 5"
+
+sesam_server_mediapool_names: 
+        - mp_daily
+        - mp_weekly
+        - mp_monthly
+sesam_server_schedule_names:
+        - full
+        - incremental

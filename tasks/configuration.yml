@@ -1,0 +1,29 @@
+---
+
+# Create datastore
+#   - sesam_server_datastore_name
+#   - sesam_server_datastore_options
+- name: ensure datastore is created
+  shell: |
+          if /opt/sesam/bin/sesam/sm_cmd list datastore | grep -q -w {{ sesam_server_datastore_name }};  then
+            rc=100
+          else  
+            /opt/sesam/bin/sesam/sm_cmd add datastore {{ sesam_server_datastore_name }} {{ sesam_server_datastore_options }}
+            rc=$?
+          fi
+          exit $rc
+  register: datastore_create
+  changed_when: datastore_create.rc=0
+  failed_when: ( datastore_create.rc > 0 ) and ( datastore_create.rc != 100 )
+
+ #- name: ensure Mediapools exist
+ #  shell: | 
+ #         if /opt/sesam/bin/sesam/sm_cmd list mediapool | grep -q -w {{ item }};  then
+ #           rc=100
+ #         else  
+ #           /opt/sesam/bin/sesam/sm_cmd add mediapool {{ item }} 
+ #           rc=$?
+ #         fi
+ #         exit $rc
+ #  with_items: "{{ sesam_server_mediapool_names }}
+ #  register: mediapool_create

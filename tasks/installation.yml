@@ -1,0 +1,23 @@
+---
+
+- name: ensure required packages are installed
+  package:
+    name: '{{ sesam_prereq_packages }}'
+    state: present
+
+#- name: get diskspace in {{ sesam_var }}
+#  shell: |
+#          df -k {{ sesam_var }} --output=avail | tail -1
+#  register: sesam_var_space
+#  changed_when: false
+
+#- name: check available diskspace
+#  fail: 
+#    msg: "Not enough diskspace in {{ sesam_var }}"
+#  when: sesam_var_space.output < 314572800
+
+- name: ensure sesam server is installed
+  package:
+          name: "{{ sesam_server_package }}"
+          state: present
+

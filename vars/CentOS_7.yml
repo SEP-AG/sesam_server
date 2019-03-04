@@ -1,0 +1,14 @@
+---
+
+# TODO: ensure DNS is working
+#  e.g. check with shell method (dig name +short) etc.
+#  Maybe separte role
+
+# sesam prerequisites
+sesam_prereq_packages:
+  - postgresql-server
+  - java-1.8.0-openjdk
+
+ # sesam server package 
+sesam_server_packages:
+- http://download.sep.de/linux/RedHat/x86_64/RHEL7/sesam_srv-4.4.3-62_pg.rhel7.x86_64.rpm
