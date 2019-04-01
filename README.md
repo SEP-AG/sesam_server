@@ -1,4 +1,4 @@
-# Sesam Server Installation
+# Ansible Sesam Server Installation
 
 This Playbook install a SEPsesam server.
 
